@@ -426,7 +426,15 @@ class Env(Generic[ASpecificEnvConf]):
         if self.conf.running_timeout_period is None:
             timeout_cmd = entry
         else:
-            timeout_cmd = f"timeout --kill-after=10 {self.conf.running_timeout_period} {entry}"
+            timeout_binary = shutil.which("timeout") or shutil.which("gtimeout")
+            if timeout_binary is None:
+                logger.warning(
+                    "Neither `timeout` nor `gtimeout` is available; running without a command timeout. "
+                    "Install GNU coreutils to enable execution time limits.",
+                )
+                timeout_cmd = entry
+            else:
+                timeout_cmd = f"{timeout_binary} --kill-after=10 {self.conf.running_timeout_period} {entry}"
         entry_add_timeout = (
             f"/bin/sh -c '"  # start of the sh command
             + f"{timeout_cmd}; entry_exit_code=$?; "
