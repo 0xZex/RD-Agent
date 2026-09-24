@@ -24,6 +24,7 @@ declare module 'vue' {
     Feedback: typeof import('./src/components/feedback.vue')['default']
     Footer: typeof import('./src/components/footer.vue')['default']
     KateX: typeof import('./src/components/kateX.vue')['default']
+    LanguageSwitcher: typeof import('./src/components/language-switcher.vue')['default']
     LineChart: typeof import('./src/components/lineChart.vue')['default']
     LineChartOne: typeof import('./src/components/lineChartOne.vue')['default']
     Loading: typeof import('./src/components/loading.vue')['default']

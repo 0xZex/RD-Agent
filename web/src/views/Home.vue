@@ -1,26 +1,26 @@
 <template>
   <div class="content">
     <div class="content-1">
-      <h2>Get Valuable</h2>
-      <h2 class="h2"><span>Insights</span> Instantly</h2>
+      <h2>{{ $t("Get Valuable") }}</h2>
+      <h2 class="h2"><span>{{ $t("Insights") }}</span> {{ $t("Instantly") }}</h2>
       <div class="bg-1">
         <button ref="btn" @mousemove="moveMouse" @click="tryNow">
-          <span>Try now</span>
+          <span>{{ $t("Try now") }}</span>
         </button>
       </div>
     </div>
     <div class="modal">
       <div class="des">
         <p>
-          R&D-Agent is your dedicated data scientist powered by an LLM. It
-          automatically researches your unique data-mining tasks, learns domain
-          knowledge to evolve from practice, develops the most tailored datasets
-          and models for your data sources, and delivers solutions with
-          significant industrial value.
+          {{
+            $t(
+              "R&D-Agent is your dedicated data scientist powered by an LLM. It automatically researches your unique data-mining tasks, learns domain knowledge to evolve from practice, develops the most tailored datasets and models for your data sources, and delivers solutions with significant industrial value."
+            )
+          }}
         </p>
       </div>
       <div class="content-2">
-        <h2>AI Drives Data-Driven AI</h2>
+        <h2>{{ $t("AI Drives Data-Driven AI") }}</h2>
         <img src="@/assets/images/Data-Driven.png" alt="R&D-Agent" />
         <p>
           In modern industry, research and development (R&D) is crucial for the
@@ -33,7 +33,7 @@
           that innovation and development proceed hand in hand, driven by the
           powerful capabilities of modern AI. 
         </p>
-        <h2 class="h2">The Framework of R&D-Agent</h2>
+        <h2 class="h2">{{ $t("The Framework of R&D-Agent") }}</h2>
         <img
           src="@/assets/images/Framework.png"
           alt="R&D-Agent"
@@ -50,10 +50,10 @@
         <div class="content-2-bg"></div>
       </div>
       <div class="content-3">
-        <h2>Ready to experiment?</h2>
-        <p>Dive into our Playground and set your creativity free!</p>
+        <h2>{{ $t("Ready to experiment?") }}</h2>
+        <p>{{ $t("Dive into our Playground and set your creativity free!") }}</p>
         <div class="btn-box">
-          <button class="playground" @click="tryNow">Playground</button>
+          <button class="playground" @click="tryNow">{{ $t("Playground") }}</button>
             <button class="contact" @click="goToGitHub">GitHub</button>
         </div>
       </div>

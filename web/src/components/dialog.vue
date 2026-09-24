@@ -1,7 +1,7 @@
 <template>
   <div class="dialog-box" v-if="uniShowDialog">
     <div class="dialog-content gradient-border">
-      <h1>Increase Loop Count</h1>
+      <h1>{{ $t("Increase Loop Count") }}</h1>
       <p>
         You can increase the number of loops. Please enter the desired number
         below.
@@ -23,8 +23,8 @@
         >
       </el-radio-group>
       <div class="btn-box">
-        <button class="gradient-border back" @click="close">BACK</button>
-        <button class="add-loops active">Add Loops</button>
+        <button class="gradient-border back" @click="close">{{ $t("BACK") }}</button>
+        <button class="add-loops active">{{ $t("Add Loops") }}</button>
       </div>
     </div>
   </div>

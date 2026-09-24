@@ -5,12 +5,12 @@
         <input
           type="password"
           @keydown.enter="login"
-          placeholder="Please enter password"
+          :placeholder="$t('Please enter password')"
           v-model.trim="token"
         />
       </div>
       <div>
-        <button @click="login">Enter</button>
+        <button @click="login">{{ $t("Enter") }}</button>
       </div>
     </div>
   </div>

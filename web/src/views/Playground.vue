@@ -2,7 +2,7 @@
   <div class="page-content">
     <div class="nav-bar">
       <span :class="{ active: !showPlayground && showPanel == 1 }" @click="Back"
-        >Start</span
+        >{{ $t("Start") }}</span
       >
       <span class="nav-separator">></span>
       <span
@@ -17,7 +17,7 @@
         :class="{
           active: !showPlayground && (showPanel == 2 || showPanel == 3),
         }"
-        >Pick a scenario</span
+        >{{ $t("Pick a scenario") }}</span
       >
       <span class="nav-separator">></span>
       <span class="nav-highlight-name" v-if="showPlayground && currentTraceName">
@@ -26,16 +26,16 @@
       <span
         class="nav-summary"
         :class="{ active: showPlayground, 'with-trace': showPlayground && currentTraceName }"
-        >Summary</span
+        >{{ $t("Summary") }}</span
       >
     </div>
     <div class="setup-content" v-show="!showPlayground">
       <div class="main-content" v-show="showPanel == 1">
-        <h1>Let’s Get Started: Select Your Action</h1>
+        <h1>{{ $t("Let’s Get Started: Select Your Action") }}</h1>
         <div class="card-box">
           <div class="card-item gradient-big-border" @click="changePanel">
-            <h2>First time?</h2>
-            <p>Select a scenario for your analysis</p>
+            <h2>{{ $t("First time?") }}</h2>
+            <p>{{ $t("Select a scenario for your analysis") }}</p>
             <img
               class="img1"
               src="@/assets/images/first-time-img.png"
@@ -43,8 +43,8 @@
             />
           </div>
           <div class="card-item gradient-big-border" @click="openHistoryPanel">
-            <h2>View previous traces?</h2>
-            <p>Open a trace ID from an earlier run to review its history.</p>
+            <h2>{{ $t("View previous traces?") }}</h2>
+            <p>{{ $t("Open a trace ID from an earlier run to review its history.") }}</p>
             <img
               class="img2"
               src="@/assets/images/continue-img.png"
@@ -70,10 +70,10 @@
               (scenarioChecked && !scenarioChecked.upload)
             "
           >
-            <p>Select a scenario for your analysis</p>
+            <p>{{ $t("Select a scenario for your analysis") }}</p>
           </h1>
           <h1 class="h1" v-show="scenarioChecked && scenarioChecked.upload">
-            Upload materials you want to analyze
+            {{ $t("Upload materials you want to analyze") }}
           </h1>
           <div class="nav-content">
             <nav>
@@ -86,7 +86,7 @@
                     content="<div style='width: 500px;font-size: 14px;padding: 0.5em 0.5em 0.7em;line-height:160%; '>R&D-Agent autonomously generates, implements, and tests ideas in iterative loops for continuous improvement and optimal performance.</div>"
                     placement="bottom"
                   >
-                    <span @click="tabChange(0)">Continuous Exploration</span>
+                    <span @click="tabChange(0)">{{ $t("Continuous Exploration") }}</span>
                   </el-tooltip>
                 </li>
                 <li :class="{ active: tabIndex == 1 }">
@@ -97,7 +97,7 @@
                     content="<div style='width: 500px;font-size: 14px;padding: 0.5em 0.5em 0.7em;line-height:160%; '>R&D-Agent executes and tests user-provided ideas in limited loops, with the number of loops depending on the provided input for targeted outcomes.</div>"
                     placement="bottom"
                   >
-                    <span @click="tabChange(1)">Guided Implementation</span>
+                    <span @click="tabChange(1)">{{ $t("Guided Implementation") }}</span>
                   </el-tooltip>
                 </li>
                 <div class="nav-line" ref="line"></div>
@@ -106,7 +106,7 @@
           </div>
           <div class="main-panel">
             <div class="title small-config-title">
-              Scenario
+              {{ $t("Scenario") }}
             </div>
             <selectComponent
               :scenarioList="scenarioList"
@@ -115,7 +115,7 @@
             ></selectComponent>
             <div v-if="scenarioChecked && scenarioChecked.upload">
               <div class="title with-tip">
-                Material
+                {{ $t("Material") }}
                 <el-tooltip
                   effect="dark"
                   :offset="8"
@@ -140,8 +140,8 @@
                 <div class="upload-box">
                   <div class="upload-box-bg">
                     <span class="upload-small"></span>
-                    <h3>research reports, papers, etc.</h3>
-                    <p>{{ isGeneralModelScenario ? "Upload one .pdf file" : "Supported format: .pdf" }}</p>
+                    <h3>{{ $t("research reports, papers, etc.") }}</h3>
+                    <p>{{ isGeneralModelScenario ? $t("Upload one .pdf file") : $t("Supported format: .pdf") }}</p>
                   </div>
                 </div>
               </el-upload>
@@ -183,7 +183,7 @@
                 <div class="upload-box">
                   <div class="upload-box-bg">
                     <span class="upload-small"></span>
-                    <h3>Upload base factors</h3>
+                    <h3>{{ $t("Upload base factors") }}</h3>
                     <p>base_factors.json and &lt;factor_name&gt;.py</p>
                   </div>
                 </div>
@@ -198,7 +198,7 @@
               </div>
               <div class="compact-setting-row">
                 <div class="title with-tip compact-setting-title">
-                  Loop count
+                  {{ $t("Loop count") }}
                   <el-tooltip
                     effect="dark"
                     :offset="8"
@@ -274,7 +274,7 @@
                   scenarioChecked && scenarioChecked.upload ? '3.5em' : '2em',
               }"
             >
-              <button class="gradient-border back" @click="Back">BACK</button>
+              <button class="gradient-border back" @click="Back">{{ $t("BACK") }}</button>
               <button
                 class="disable"
                 v-if="!loading"
@@ -300,10 +300,10 @@
         </div>
         <div class="intro-txt" v-if="scenarioCheckedIndex != -1">
           <div v-for="item in introName" :key="item">
-            <h3>{{ item }}</h3>
+            <h3>{{ $t(item) }}</h3>
             <markdown
               class="intro-markdown"
-              :content="scenarioChecked.introduce[item]"
+              :content="translateMarkdownContent(scenarioChecked.introduce[item])"
             ></markdown>
           </div>
         </div>
@@ -314,13 +314,13 @@
           and inspect their execution history.
         </h1>
         <div class="main-panel history-panel">
-          <div class="title">Trace ID List</div>
+          <div class="title">{{ $t("Trace ID List") }}</div>
           <div class="desc">
-            <p>Pick a scenario first, then choose one of its trace names</p>
+            <p>{{ $t("Pick a scenario first, then choose one of its trace names") }}</p>
           </div>
           <div class="history-select-row">
             <div class="history-select-item">
-              <div class="title small-config-title">Scenario</div>
+              <div class="title small-config-title">{{ $t("Scenario") }}</div>
               <smSelectComponent
                 :scenarioList="historyScenarioList"
                 :scenarioIndex="historyScenarioCheckedIndex"
@@ -329,7 +329,7 @@
               ></smSelectComponent>
             </div>
             <div class="history-select-item">
-              <div class="title small-config-title">Trace name</div>
+              <div class="title small-config-title">{{ $t("Trace name") }}</div>
               <smSelectComponent
                 :scenarioList="historyTraceList"
                 :scenarioIndex="historyTraceCheckedIndex"
@@ -345,7 +345,7 @@
                 scenarioChecked && scenarioChecked.upload ? '3.5em' : '7.5em',
             }"
           >
-            <button class="gradient-border back" @click="Back">BACK</button>
+            <button class="gradient-border back" @click="Back">{{ $t("BACK") }}</button>
             <button
               class="disable"
               :class="{
@@ -379,6 +379,7 @@ import selectComponent from "../components/select-component.vue";
 import smSelectComponent from "../components/sm-select-component.vue";
 import loadingSvg from "../components/loading-dot.vue";
 import markdown from "../components/markdown.vue";
+import { translateMarkdownContent } from "../i18n";
 import playgroundPage from "./PlaygroundPage.vue";
 import { useRouter } from "vue-router";
 import { kaggleCompetitions } from "../constants/mle-competitions";

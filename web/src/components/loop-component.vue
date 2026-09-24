@@ -8,7 +8,7 @@
       >
         <span class="trace-name-value">{{ traceName }}</span>
       </div>
-      <span class="loop-title">Loops</span>
+      <span class="loop-title">{{ $t("Loops") }}</span>
     </div>
     <div class="loop-box-list" ref="loops">
       <div class="loop-length">
@@ -90,7 +90,7 @@
       </button>
       <div class="auto-skip-toggle" v-if="editLoop">
         <label class="toggle-label">
-          <span class="toggle-text">Auto Skip Interaction</span>
+          <span class="toggle-text">{{ $t("Auto Skip Interaction") }}</span>
           <span class="toggle-switch">
             <input type="checkbox" v-model="autoSkip" @change="emitAutoSkip" />
             <span class="toggle-slider"></span>

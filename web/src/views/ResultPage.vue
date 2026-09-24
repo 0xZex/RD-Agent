@@ -7,25 +7,25 @@
           @change="switchChange"
           style="--el-switch-on-color: #8749ff; --el-switch-off-color: #c9d0fc"
         />
-        <span>Successful Hypotheses</span>
+        <span>{{ $t("Successful Hypotheses") }}</span>
       </div>
       <div class="download-btn-item" @click="downloadLogs">
         <span class="download-icon"></span>
-        <span>Log</span>
+        <span>{{ $t("Log") }}</span>
       </div>
       <div class="download-btn-item" @click="downloadAllLoops">
         <span class="download-icon"></span>
-        <span>All loop files</span>
+        <span>{{ $t("All loop files") }}</span>
       </div>
     </div>
     <div class="bg-content">
       <div class="result-content">
-        <h2>Metrics</h2>
+        <h2>{{ $t("Metrics") }}</h2>
         <div>
           <chartBox :metricData="metricData"></chartBox>
         </div>
         <div class="section-title-row">
-          <h2>Summary</h2>
+          <h2>{{ $t("Summary") }}</h2>
           <div class="trace-name-chip" v-if="traceName">{{ traceName }}</div>
         </div>
         <div class="table-box">
@@ -51,21 +51,21 @@
               v-if="scenarioName == 'Data Science'"
             >
               <template #header="scope">
-                <span class="text-color-blue">Component</span>
+                <span class="text-color-blue">{{ $t("Component") }}</span>
               </template>
             </el-table-column>
             <el-table-column label="Status" width="140">
               <template #header="scope">
-                <span class="text-color-blue">Status</span>
+                <span class="text-color-blue">{{ $t("Status") }}</span>
               </template>
               <template #default="scope">
-                <span v-if="scope.row.decision" class="success">Success</span>
-                <span v-if="!scope.row.decision" class="fail">Failed</span>
+                <span v-if="scope.row.decision" class="success">{{ $t("Success") }}</span>
+                <span v-if="!scope.row.decision" class="fail">{{ $t("Failed") }}</span>
               </template>
             </el-table-column>
             <el-table-column label="Hypothesis" prop="hypothesis">
               <template #header="scope">
-                <span class="text-color-blue">Hypothesis</span>
+                <span class="text-color-blue">{{ $t("Hypothesis") }}</span>
               </template>
               <template #default="scope">
                 {{ scope.row.hypothesis || "Component initializing" }}
@@ -73,7 +73,7 @@
             </el-table-column>
             <el-table-column label="Feedback" prop="concise_knowledge">
               <template #header="scope">
-                <span class="text-color-purple">Feedback</span>
+                <span class="text-color-purple">{{ $t("Feedback") }}</span>
               </template>
               <template #default="scope">
                 {{
@@ -84,7 +84,7 @@
             </el-table-column>
             <el-table-column label="Files" width="200">
               <template #header="scope">
-                <span class="text-color-blue">Files</span>
+                <span class="text-color-blue">{{ $t("Files") }}</span>
               </template>
               <template #default="scope">
                 <div class="download-file-list" v-if="scope.row.downloadFiles.length">
@@ -118,7 +118,7 @@
                   <li>
                     <div class="title">
                       <span class="Hypothesis-icon icon"></span>
-                      <span class="name">Hypothesis</span>
+                      <span class="name">{{ $t("Hypothesis") }}</span>
                     </div>
                     <div class="text">
                       {{ props.row.hypothesis || "Component initializing" }}
@@ -127,7 +127,7 @@
                   <li>
                     <div class="title">
                       <span class="Reason-icon icon"></span>
-                      <span class="name">Reason</span>
+                      <span class="name">{{ $t("Reason") }}</span>
                     </div>
                     <div class="text">
                       {{ props.row.reason || "" }}
@@ -136,7 +136,7 @@
                   <li>
                     <div class="title">
                       <span class="Observation-icon icon"></span>
-                      <span class="name">Observation</span>
+                      <span class="name">{{ $t("Observation") }}</span>
                     </div>
                     <div class="text">
                       {{ props.row.observations || "" }}
@@ -145,14 +145,14 @@
                   <li>
                     <div class="title">
                       <span class="Conclusion-icon icon"></span>
-                      <span class="name">Status</span>
+                      <span class="name">{{ $t("Status") }}</span>
                     </div>
                     <div class="text">
                       <span v-if="props.row.decision" class="success"
-                        >Success</span
+                        >{{ $t("Success") }}</span
                       >
                       <span v-if="!props.row.decision" class="fail"
-                        >Failed</span
+                        >{{ $t("Failed") }}</span
                       >
                     </div>
                   </li>

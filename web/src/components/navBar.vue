@@ -8,18 +8,20 @@
       </router-link>
       <ul>
         <li>
-          <router-link to="/">Homepage</router-link>
+          <router-link to="/">{{ $t("Homepage") }}</router-link>
         </li>
         <li>
-          <router-link to="/Playground">Playground</router-link>
+          <router-link to="/Playground">{{ $t("Playground") }}</router-link>
         </li>
+        <LanguageSwitcher />
       </ul>
     </div>
   </div>
 </template>
 <script lang="ts">
+import LanguageSwitcher from "./language-switcher.vue";
 export default {
-  components: {},
+  components: { LanguageSwitcher },
   setup() {},
 };
 </script>

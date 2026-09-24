@@ -28,7 +28,7 @@
                   name="pg-process"
                   :color="tabIndex == 0 ? '#fff' : '#2B2B2B'"
                 ></SvgIcon>
-                PROCESS
+                {{ $t("PROCESS") }}
               </span>
               <SvgIcon
                 class="arrow-right-icon"
@@ -48,7 +48,7 @@
                   name="pg-result"
                   :color="tabIndex == 1 ? '#fff' : '#2B2B2B'"
                 ></SvgIcon>
-                RESULT
+                {{ $t("RESULT") }}
               </span>
               <SvgIcon
                 class="arrow-right-icon"
@@ -63,7 +63,7 @@
                   name="pg-result"
                   :color="tabIndex == 1 ? '#fff' : '#2B2B2B'"
                 ></SvgIcon>
-                RESULT
+                {{ $t("RESULT") }}
               </span>
               <img
                 src="@/assets/playground-images/loading-tab.gif"
@@ -91,7 +91,7 @@
                   }"
                 >
                   <div class="tab-bg">
-                    <span @click="tabChange(0)">Research</span>
+                    <span @click="tabChange(0)">{{ $t("Research") }}</span>
                   </div>
                 </li>
                 <li
@@ -115,7 +115,7 @@
                             currentData.evolvingFeedbacks.length !== 0)) &&
                           tabChange(1)
                       "
-                      >Development</span
+                      >{{ $t("Development") }}</span
                     >
                     <img
                       v-if="
@@ -146,7 +146,7 @@
                           (currentData && currentData.feedbackHypothesis)) &&
                           tabChange(2)
                       "
-                      >Feedback</span
+                      >{{ $t("Feedback") }}</span
                     >
                     <img
                       v-if="
@@ -183,7 +183,7 @@
                   }"
                 >
                   <div class="tab-bg">
-                    <span @click="tabChange(0)">Research</span>
+                    <span @click="tabChange(0)">{{ $t("Research") }}</span>
                   </div>
                 </li>
                 <li
@@ -206,7 +206,7 @@
                             currentData.evolvingFeedbacks.length !== 0)) &&
                           tabChange(1)
                       "
-                      >Development</span
+                      >{{ $t("Development") }}</span
                     >
                     <img
                       v-if="
@@ -270,7 +270,7 @@
         :class="{ 'user-interaction-dialog--wide': isFeatureInteraction }"
       >
         <div class="dialog-header">
-          <h1>User Interaction Required</h1>
+          <h1>{{ $t("User Interaction Required") }}</h1>
           <button
             class="dialog-minimize"
             type="button"
@@ -282,7 +282,7 @@
         <template v-if="userInteractionWaitingHypothesis && !updateEnd">
           <div class="interaction-waiting">
             <span class="interaction-waiting-spinner" aria-hidden="true"></span>
-            <span>R&amp;D-Agent is generating hypothesis</span>
+            <span>{{ $t("R&D-Agent is generating hypothesis") }}</span>
           </div>
           <div class="interaction-form read-only">
             <div

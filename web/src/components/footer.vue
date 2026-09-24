@@ -2,27 +2,27 @@
   <footer>
     <div class="footer" :style="{ background: color }">
       <p>
-        <a target="_blank" aria-label="Contact us" href="#">Contact us</a>
+        <a target="_blank" :aria-label="$t('Contact us')" href="#">{{ $t("Contact us") }}</a>
         <span class="line">|</span>
         <a
           target="_blank"
-          aria-label="Privacy & Cookies"
+          :aria-label="$t('Privacy & Cookies')"
           href="https://go.microsoft.com/fwlink/?LinkId=521839"
-          >Privacy &amp; Cookies</a
+          >{{ $t("Privacy & Cookies") }}</a
         >
         <span class="line">|</span>
         <a
           target="_blank"
-          aria-label="Terms of Use"
+          :aria-label="$t('Terms of Use')"
           href="https://go.microsoft.com/fwlink/?LinkID=206977"
-          >Terms of Use</a
+          >{{ $t("Terms of Use") }}</a
         >
         <span class="line">|</span>
         <a
           target="_blank"
-          aria-label="Trademarks"
+          :aria-label="$t('Trademarks')"
           href="https://www.microsoft.com/trademarks"
-          >Trademarks</a
+          >{{ $t("Trademarks") }}</a
         >
         <span class="line">|</span>
         <span style="">© Microsoft 2024</span>
